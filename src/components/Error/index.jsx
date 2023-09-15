@@ -1,24 +1,37 @@
-import ErrorPicture from '../../assets/404.svg'
 import styled from 'styled-components'
 import colors from '../../utils/style/colors'
+import ErrorPicture from '../../assets/404.svg'
 
-const StyledPage = styled.div`
-  background-color: ${colors.backgroundLight};
-  margin: 100px;
-  height: 824px;
+const ErrorWrapper = styled.div`
+  margin: 30px;
   display: flex;
-  justify-content: space-evenly;
   flex-direction: column;
+  background-color: ${colors.background};
   align-items: center;
+`
+
+const ErrorTitle = styled.h1`
+  font-weight: 300;
+`
+
+const ErrorSubtitle = styled.h2`
+  font-weight: 300;
+  color: ${colors.secondary};
+`
+
+const Illustration = styled.img`
+  max-width: 800px;
 `
 
 function Error() {
   return (
-    <StyledPage>
-      <p>Oups...</p>
-      <img src={ErrorPicture} alt="404 error" />
-      <p>Il semblerait qu'il y ait un problème</p>
-    </StyledPage>
+    <ErrorWrapper>
+      <ErrorTitle>Oups...</ErrorTitle>
+      <Illustration src={ErrorPicture} />
+      <ErrorSubtitle>
+        Il semblerait que la page que vous cherchez n’existe pas
+      </ErrorSubtitle>
+    </ErrorWrapper>
   )
 }
 

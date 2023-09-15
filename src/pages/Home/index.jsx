@@ -1,46 +1,58 @@
 import styled from "styled-components";
 import colors from '../../utils/style/colors'
 import homePicture from '../../assets/home-illustration.svg'
-import { Link } from "react-router-dom";
+import { StyledLink } from '../../utils/style/Atoms'
 
-const StyledPage = styled.div`
-  background-color: ${colors.backgroundLight};
-  margin: 100px;
-  height: 824px;
+const HomeWrapper = styled.div`
   display: flex;
-  justify-content: space-evenly;
-  align-items: center;
+  justify-content: center;
 `
-const StyledLink = styled(Link)`
-  width: 50px;
-  padding: 10px 70px;
-  text-decoration: none;
-  font-size: 18px;
-  color: white; 
-  border-radius: 30px; 
-  background-color: ${colors.primary};
+
+const HomerContainer = styled.div`
+  margin: 30px;
+  background-color: ${colors.background};
+  padding: 60px 90px;
+  display: flex;
+  flex-direction: row;
+  max-width: 1200px;
 `
-const StyledImg = styled.img`
-  width: 500px;
+
+const LeftCol = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  flex: 1;
+  ${StyledLink} {
+    max-width: 250px;
+  }
 `
-const StyledTitle = styled.h1`
-  line-height: 2em;
+
+const StyledTitle = styled.h2`
+  padding-bottom: 30px;
+  max-width: 280px;
+  line-height: 50px;
+`
+
+const Illustration = styled.img`
+  flex: 1;
 `
 
 function Home() {
   return (
-  <StyledPage>
-    <div>
-      <StyledTitle>
-        Repérez vos besoins,<br />
-        on s'occupe du reste,<br />
-        avec les meilleurs<br />
-        talents
-      </StyledTitle>
-      <StyledLink to="/survey/1" $isFullLink>Faire le test</StyledLink>
-    </div>
-    <StyledImg src={homePicture} alt="home illustration" />
-  </StyledPage>
+    <HomeWrapper>
+      <HomerContainer>
+        <LeftCol>
+          <StyledTitle>
+            Repérez vos besoins,<br />
+            on s'occupe du reste,<br />
+            avec les meilleurs<br />
+            talents
+          </StyledTitle>
+          <StyledLink to="/survey/1" $isFullLink>Faire le test</StyledLink>
+        </LeftCol>
+        <Illustration src={homePicture} alt="home illustration" />
+      </HomerContainer>
+    </HomeWrapper>
   )
 }
 
