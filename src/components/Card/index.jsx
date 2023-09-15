@@ -1,4 +1,5 @@
 import PropTypes from 'prop-types'
+import DefaultPicture from '../../assets/profile.png'
 
 function Card({label, picture, title}) {
   return (
@@ -11,9 +12,15 @@ function Card({label, picture, title}) {
 }
 
 Card.propTypes = {
-  label: PropTypes.string,
-  title: PropTypes.string,
-  picture: PropTypes.string,
+  label: PropTypes.string.isRequired,
+  title: PropTypes.string.isRequired,
+  picture: PropTypes.string.isRequired
+}
+
+Card.defaultProps = {
+  title: '',
+  label: '',
+  picture: DefaultPicture,
 }
 
 export default Card
