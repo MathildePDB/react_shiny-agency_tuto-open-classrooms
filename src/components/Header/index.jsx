@@ -1,7 +1,18 @@
 import { Link } from "react-router-dom";
 import styled from "styled-components";
-import colors from "../../style/colors";
+import colors from '../../utils/style/colors'
+import logo from '../../assets/dark-logo.png'
 
+const StyledNav = styled.nav`
+    margin : 38px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+`
+const StyledLogo = styled.img`
+    width: 260px;
+    height: 97px;
+`
 const StyledLink = styled(Link)`
   padding: 15px;
   color: #8186a0;
@@ -14,11 +25,15 @@ const StyledLink = styled(Link)`
 
 function Header() {
   return (
-    <nav>
-      <StyledLink to="/">Accueil</StyledLink>
-      <StyledLink to="/survey/1" $isFullLink>Faire le test</StyledLink>
-      <StyledLink to="/freelances">Freelances</StyledLink>
-    </nav>
+    <StyledNav>
+      <StyledLogo src={logo} alt="logo" />
+      <div>
+        <StyledLink to="/">Accueil</StyledLink>
+        <StyledLink to="/freelances">Freelances</StyledLink>
+        <StyledLink to="/survey/1" $isFullLink>Faire le test</StyledLink>
+      </div>
+      
+    </StyledNav>
   )
 }
 

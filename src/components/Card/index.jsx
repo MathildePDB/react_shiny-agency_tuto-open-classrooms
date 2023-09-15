@@ -1,19 +1,24 @@
 import PropTypes from 'prop-types'
 import DefaultPicture from '../../assets/profile.png'
 import styled from 'styled-components'
-import colors from '../../style/colors'
+import colors from '../../utils/style/colors'
 
 const CardLabel = styled.span`
   color: #5843e4;
   font-size: 22px;
   font-weight: bold;
+  margin: 20px;
 `
 const CardImage = styled.img`
-  height: 80px;
-  width: 80px;
+  height: 148px;
+  width: 148px;
   border-radius: 50%;
+  align-self: center;
 `
-
+const CardSpan = styled.span`
+  align-self: center;
+  margin-top: 45px;
+`
 const CardWrapper = styled.div`
   display: flex;
   flex-direction: column;
@@ -34,7 +39,7 @@ function Card({label, picture, title}) {
     <CardWrapper>
       <CardLabel>{label}</CardLabel>
       <CardImage src={picture} alt="freelance" />
-      <span>{title}</span>
+      <CardSpan>{title}</CardSpan>
     </CardWrapper>
   )
 }

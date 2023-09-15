@@ -1,6 +1,18 @@
 import Card from '../../components/Card'
 import styled from 'styled-components'
 
+const CardsContainer = styled.div`
+  margin-top: 50px;
+  display: grid;
+  gap: 60px;
+  grid-template-rows: 350px 350px;
+  grid-template-columns: repeat(2, 1fr);
+`
+const StyledDiv = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`
 const freelanceProfiles = [
   {
     name: 'Jane Doe',
@@ -13,20 +25,18 @@ const freelanceProfiles = [
   {
     name: 'Jeanne Biche',
     jobTitle: 'Développeuse fullstack',
+  },
+  {
+    name: 'Jeanne Biche',
+    jobTitle: 'Développeuse fullstack',
   }
 ]
 
-const CardsContainer = styled.div`
-  display: grid;
-  gap: 24px;
-  grid-template-rows: 350px 350px;
-  grid-template-columns: repeat(2, 1fr);
-`
-
 function Freelances() {
   return (
-    <div>
-      <h1>Freelances 👩‍💻👨‍💻👩‍💻</h1>
+    <StyledDiv>
+      <h1>Trouvez votre prestataire</h1>
+      <p>Chez Shiny nous réussissons les meilleurs profils pour vous.</p>
       <CardsContainer>
         {freelanceProfiles.map((profile, index) => (
           <Card
@@ -35,9 +45,8 @@ function Freelances() {
             title={profile.name}
           />
         ))}
-      </CardsContainer>
-      
-    </div>
+      </CardsContainer> 
+    </StyledDiv>
   )
 }
 
