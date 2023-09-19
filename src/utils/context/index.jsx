@@ -18,9 +18,9 @@ export const ThemeProvider = ({ children }) => {
 export const SurveyContext = createContext()
 
 export const SurveyProvider = ({ children }) => {
-  const [answers, setAnswer] = useState({})
+  const [answers, setAnswers] = useState({})
   const saveAnswers = (newAnswers) => {
-    setAnswer({ ...answers, ...newAnswers })
+    setAnswers({ ...answers, ...newAnswers })
   }
 
   return (

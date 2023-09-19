@@ -15,9 +15,9 @@ const CardsContainer = styled.div`
 
 const PageTitle = styled.h1`
   font-size: 30px;
-  color: black;
   text-align: center;
   padding-bottom: 30px;
+  color: ${({ theme }) => (theme === 'light' ? '#000000' : '#ffffff')};
 `
 
 const PageSubtitle = styled.h2`
@@ -26,6 +26,7 @@ const PageSubtitle = styled.h2`
   font-weight: 300;
   text-align: center;
   padding-bottom: 30px;
+  color: ${({ theme }) => (theme === 'light' ? '#000000' : '#ffffff')};
 `
 
 const LoaderWrapper = styled.div`
@@ -35,37 +36,39 @@ const LoaderWrapper = styled.div`
 
 function Freelances() {
   const { theme } = useTheme()
-  const { data, isDataLoading, error } = useFetch(
+  const { data, isLoading, error } = useFetch(
     `http://localhost:8000/freelances`,
   )
 
+  // Ici le "?" permet de s'assurer que data existe bien.
+  // Vous pouvez en apprendre davantage sur cette notation ici :
+  // https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Operators/Optional_chaining
   const freelancersList = data?.freelancersList
 
   if (error) {
-    return <span>Oups... il y a eu un problème</span>
+    return <span>Oups il y a eu un problème</span>
   }
 
   return (
     <div>
       <PageTitle theme={theme}>Trouvez votre prestataire</PageTitle>
       <PageSubtitle theme={theme}>
-        Chez Shiny nous réussissons les meilleurs profils pour vous.
+        Chez Shiny nous réunissons les meilleurs profils pour vous.
       </PageSubtitle>
-      {isDataLoading ? (
+      {isLoading ? (
         <LoaderWrapper>
           <Loader theme={theme} />
         </LoaderWrapper>
       ) : (
         <CardsContainer>
-          {freelancersList &&
-            freelancersList.map((profile, index) => (
-              <Card
-                key={`${profile.name}-${index}`}
-                label={profile.job}
-                title={profile.name}
-                pcture={profile.picture}
-              />
-            ))}
+          {freelancersList.map((profile, index) => (
+            <Card
+              key={`${profile.name}-${index}`}
+              label={profile.job}
+              title={profile.name}
+              picture={profile.picture}
+            />
+          ))}
         </CardsContainer>
       )}
     </div>

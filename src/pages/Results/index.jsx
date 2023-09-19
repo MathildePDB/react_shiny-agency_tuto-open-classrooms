@@ -17,7 +17,7 @@ const ResultsContainer = styled.div`
 
 const ResultsTitle = styled.h2`
   color: ${({ theme }) => (theme === 'light' ? '#000000' : '#ffffff')};
-  font-wieght: bold;
+  font-weight: bold;
   font-size: 28px;
   max-width: 60%;
   text-align: center;
@@ -58,7 +58,6 @@ function formatFetchParams(answers) {
   return answerNumbers.reduce((previousParams, answerNumber, index) => {
     const isFirstParam = index === 0
     const separator = isFirstParam ? '' : '&'
-
     return `${previousParams}${separator}a${answerNumber}=${answers[answerNumber]}`
   }, '')
 }
@@ -69,7 +68,7 @@ function Results() {
   const fetchParams = formatFetchParams(answers)
 
   const { data, isLoading, error } = useFetch(
-    `http://localhost:8000/results.${fetchParams}`,
+    `http://localhost:8000/results?${fetchParams}`,
   )
 
   if (error) {
