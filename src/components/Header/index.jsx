@@ -1,5 +1,5 @@
-import { Link } from "react-router-dom";
-import styled from "styled-components";
+import { Link } from 'react-router-dom'
+import styled from 'styled-components'
 import { StyledLink } from '../../utils/style/Atoms'
 import Logo from '../../assets/dark-logo.png'
 

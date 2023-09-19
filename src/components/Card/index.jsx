@@ -35,12 +35,11 @@ const CardWrapper = styled.div`
   transition: 200ms;
   &:hover {
     cursor: pointer;
-    box-shadow: 2px 2px 10px #E2E2E9;
+    box-shadow: 2px 2px 10px #e2e2e9;
   }
 `
 
-function Card({label, picture, title}) {
-
+function Card({ label, picture, title }) {
   return (
     <CardWrapper>
       <CardLabel>{label}</CardLabel>
@@ -53,7 +52,7 @@ function Card({label, picture, title}) {
 Card.propTypes = {
   label: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
-  picture: PropTypes.string.isRequired
+  picture: PropTypes.string.isRequired,
 }
 
 Card.defaultProps = {

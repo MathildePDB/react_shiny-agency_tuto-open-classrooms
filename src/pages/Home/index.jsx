@@ -1,6 +1,6 @@
-import styled from "styled-components";
+import styled from 'styled-components'
 import colors from '../../utils/style/colors'
-import homePicture from '../../assets/home-illustration.svg'
+import homeIllustration from '../../assets/home-illustration.svg'
 import { StyledLink } from '../../utils/style/Atoms'
 
 const HomeWrapper = styled.div`
@@ -10,7 +10,7 @@ const HomeWrapper = styled.div`
 
 const HomerContainer = styled.div`
   margin: 30px;
-  background-color: ${colors.background};
+  background-color: ${colors.backgroundLight};
   padding: 60px 90px;
   display: flex;
   flex-direction: row;
@@ -43,14 +43,14 @@ function Home() {
       <HomerContainer>
         <LeftCol>
           <StyledTitle>
-            Repérez vos besoins,<br />
-            on s'occupe du reste,<br />
-            avec les meilleurs<br />
+            Repérez vos besoins, on s'occupe du reste, avec les meilleurs
             talents
           </StyledTitle>
-          <StyledLink to="/survey/1" $isFullLink>Faire le test</StyledLink>
+          <StyledLink to="/survey/1" $isFullLink>
+            Faire le test
+          </StyledLink>
         </LeftCol>
-        <Illustration src={homePicture} alt="home illustration" />
+        <Illustration src={homeIllustration} alt="home illustration" />
       </HomerContainer>
     </HomeWrapper>
   )
